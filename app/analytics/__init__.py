@@ -1,0 +1,2 @@
+from app.analytics.feedback_analytics import FeedbackAnalytics
+from app.analytics.department_analytics import DepartmentAnalytics
