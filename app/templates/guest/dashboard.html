@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Guest Dashboard{% endblock %}
+
+{% block body %}
+<div data-layout="guest">
+  <div class="page-header page-header--row">
+    <div>
+      <h1 id="welcome-heading">Welcome back</h1>
+      <p>We're glad to have you with us. Here's a snapshot of your stay feedback.</p>
+    </div>
+    <div>
+      <a class="btn btn--gold" href="/guest/feedback"><i class="fa-solid fa-star"></i> Rate your stay</a>
+      <a class="btn btn--ghost" href="/guest/complaints"><i class="fa-solid fa-circle-exclamation"></i> Raise a complaint</a>
+    </div>
+  </div>
+
+  <section id="guest-stats" class="stat-grid" aria-busy="true">
+    <div class="skeleton-block"></div>
+    <div class="skeleton-block"></div>
+    <div class="skeleton-block"></div>
+  </section>
+
+  <div class="card" style="margin-top:18px">
+    <div class="card__header">
+      <h2>Your stay</h2>
+    </div>
+    <dl id="stay-details" class="detail-grid"></dl>
+  </div>
+
+  <div class="card">
+    <div class="card__header">
+      <h2>Recent complaints</h2>
+      <a class="btn btn--ghost btn--sm" href="/guest/my-complaints">View all</a>
+    </div>
+    <div id="recent-complaints"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/layout.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pages/guest/dashboard.js') }}"></script>
+{% endblock %}

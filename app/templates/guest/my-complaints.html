@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}My Complaints{% endblock %}
+
+{% block body %}
+<div data-layout="guest">
+  <div class="page-header page-header--row">
+    <div>
+      <h1>My complaints</h1>
+      <p>Track every issue you have raised and how we resolved it.</p>
+    </div>
+    <a class="btn btn--primary" href="/guest/complaints"><i class="fa-solid fa-bullhorn"></i> New complaint</a>
+  </div>
+
+  <div class="card">
+    <div class="filter-bar" style="margin-bottom:16px">
+      <div class="form-field">
+        <label for="filter-status">Status</label>
+        <select class="input" id="filter-status">
+          <option value="">All statuses</option>
+          <option value="New">New</option>
+          <option value="Assigned">Assigned</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Resolved">Resolved</option>
+          <option value="Closed">Closed</option>
+        </select>
+      </div>
+      <div class="form-field form-field--compact">
+        <button type="button" class="btn btn--ghost" id="clear-filters">Clear</button>
+      </div>
+    </div>
+    <div id="complaints-container" aria-live="polite"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/layout.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pages/guest/my-complaints.js') }}"></script>
+{% endblock %}

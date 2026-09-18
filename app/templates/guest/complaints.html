@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Submit Complaint{% endblock %}
+
+{% block body %}
+<div data-layout="guest">
+  <div class="page-header">
+    <h1>Raise a complaint</h1>
+    <p>Tell us what went wrong — the right department will be assigned to fix it.</p>
+  </div>
+
+  <div class="card" style="max-width:720px">
+    <div id="stay-banner" class="alert alert--info" hidden>
+      <i class="fa-solid fa-bed"></i><span></span>
+    </div>
+
+    <form id="complaint-form" novalidate>
+      <div class="form-field">
+        <label for="category">Complaint category <span class="text-danger">*</span></label>
+        <select class="input" id="category" name="category_id" required>
+          <option value="">Loading categories…</option>
+        </select>
+        <p class="form-error" hidden></p>
+      </div>
+
+      <div class="form-field">
+        <label for="priority">Priority</label>
+        <select class="input" id="priority" name="priority">
+          <option value="Low">Low — minor inconvenience</option>
+          <option value="Medium" selected>Medium — needs attention</option>
+          <option value="High">High — affects your comfort</option>
+          <option value="Critical">Critical — urgent / safety issue</option>
+        </select>
+        <p class="hint">Priority sets the response target (SLA). Critical issues alert management immediately.</p>
+      </div>
+
+      <div class="form-field">
+        <label for="description">Describe the issue <span class="text-danger">*</span></label>
+        <textarea class="input" id="description" name="description" rows="5" required
+          placeholder="What happened? Which room or area was affected? When did you first notice it?"></textarea>
+        <p class="hint">Minimum 10 characters. The more detail you give, the faster we can resolve it.</p>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn--primary" data-loading-text="Submitting…">
+          <i class="fa-solid fa-bullhorn"></i> Submit complaint
+        </button>
+        <a class="btn btn--ghost" href="/guest/my-complaints"><i class="fa-solid fa-list-check"></i> My complaints</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/layout.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pages/guest/complaints.js') }}"></script>
+{% endblock %}

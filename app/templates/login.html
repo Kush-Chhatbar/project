@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Staff &amp; Admin Login{% endblock %}
+
+{% block body %}
+<div class="auth-shell">
+  <aside class="auth-hero">
+    <a class="brand" href="/">
+      <span class="brand__mark"><i class="fa-solid fa-hotel"></i></span>
+      <span>Grandeur Suites</span>
+    </a>
+    <div class="auth-hero__tagline">
+      <h2>The operations side of hospitality.</h2>
+      <p>Track complaints through every stage — assignment, progress, resolution — with SLA deadlines always in view.</p>
+    </div>
+    <ul class="auth-hero__points">
+      <li><i class="fa-solid fa-circle-check"></i> Role-aware dashboards</li>
+      <li><i class="fa-solid fa-circle-check"></i> SLA breach monitoring</li>
+      <li><i class="fa-solid fa-circle-check"></i> Sentiment &amp; trend analytics</li>
+    </ul>
+  </aside>
+
+  <div class="auth-form-side">
+    <div class="auth-card">
+      <a class="brand" href="/"><span class="brand__mark"><i class="fa-solid fa-hotel"></i></span><span>Grandeur Suites</span></a>
+      <div class="card">
+        <h1>Welcome back</h1>
+        <p>Sign in with your staff or administrator account.</p>
+
+        <div id="login-alert" class="alert alert--error" hidden>
+          <i class="fa-solid fa-circle-exclamation"></i><span></span>
+        </div>
+
+        <form id="staff-login-form" novalidate>
+          <div class="form-field">
+            <label for="email">Email address</label>
+            <input class="input" type="email" id="email" name="email" autocomplete="email" placeholder="you@grandeursuites.com" required>
+          </div>
+
+          <div class="form-field">
+            <label for="password">Password</label>
+            <div class="input-group">
+              <input class="input" type="password" id="password" name="password" autocomplete="current-password" placeholder="Enter your password" required>
+              <button type="button" class="input-group__toggle" id="toggle-password" aria-label="Show password">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary btn--block" data-loading-text="Signing in…">
+              <i class="fa-solid fa-right-to-bracket"></i> Sign in
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <p class="auth-alt">
+        Staying with us? <a href="/guest/login">Sign in as a guest</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/pages/login.js') }}"></script>
+{% endblock %}

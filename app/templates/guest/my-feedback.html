@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}My Feedback{% endblock %}
+
+{% block body %}
+<div data-layout="guest">
+  <div class="page-header">
+    <h1>My feedback</h1>
+    <p>Every rating you have shared with us during your stay.</p>
+  </div>
+
+  <div class="card">
+    <div class="filter-bar" style="margin-bottom:16px">
+      <div class="form-field">
+        <label for="filter-rating">Rating</label>
+        <select class="input" id="filter-rating">
+          <option value="">All ratings</option>
+          <option value="4-5.1">4+ stars</option>
+          <option value="3-4">3 stars</option>
+          <option value="2-3">2 stars</option>
+          <option value="1-2">1 star</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="filter-from">From date</label>
+        <input class="input" type="date" id="filter-from">
+      </div>
+      <div class="form-field">
+        <label for="filter-to">To date</label>
+        <input class="input" type="date" id="filter-to">
+      </div>
+      <div class="form-field form-field--compact">
+        <button type="button" class="btn btn--ghost" id="clear-filters">Clear filters</button>
+      </div>
+    </div>
+    <div id="feedback-list" aria-live="polite"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/layout.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pages/guest/my-feedback.js') }}"></script>
+{% endblock %}

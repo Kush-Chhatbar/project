@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block body %}
+<div data-layout="admin">
+  <div class="page-header page-header--row">
+    <div>
+      <h1>Management dashboard</h1>
+      <p>Hotel-wide feedback and complaint analytics, updated live from the service.</p>
+    </div>
+    <div>
+      <a class="btn btn--ghost" href="/admin/feedbacks"><i class="fa-solid fa-star"></i> Feedback</a>
+      <a class="btn btn--primary" href="/admin/complaints"><i class="fa-solid fa-list-check"></i> Complaints</a>
+    </div>
+  </div>
+
+  <section id="admin-metrics" class="stat-grid" aria-busy="true">
+    <div class="skeleton-block"></div>
+    <div class="skeleton-block"></div>
+    <div class="skeleton-block"></div>
+    <div class="skeleton-block"></div>
+  </section>
+
+  <div class="chart-grid" style="margin-top:18px">
+    <div class="card">
+      <div class="card__header">
+        <h2>Rating trend</h2>
+        <select class="input" id="trend-period" style="width:auto; min-height:36px" aria-label="Trend period">
+          <option value="monthly">Monthly</option>
+          <option value="weekly">Weekly</option>
+          <option value="daily">Daily</option>
+          <option value="yearly">Yearly</option>
+        </select>
+      </div>
+      <div id="trend-chart"></div>
+      <p id="trend-summary" class="muted" style="font-size:.85rem; margin:8px 0 0"></p>
+    </div>
+
+    <div class="card">
+      <div class="card__header"><h2>Rating distribution</h2></div>
+      <div id="distribution-chart"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card__header"><h2>Complaints by category</h2></div>
+    <div id="category-analytics"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/layout.js') }}"></script>
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pages/admin/dashboard.js') }}"></script>
+{% endblock %}

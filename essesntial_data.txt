@@ -1,0 +1,2 @@
+SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:kush@localhost:5432/guests_feedback_complaints_db'
+JWT_SECRET_KEY = 'cc97223adfbdc4d74a39de335b6ecfbe832b4537cc0ee3962e39b9d7cd2adf6d'

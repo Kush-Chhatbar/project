@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Staff Dashboard{% endblock %}
+
+{% block body %}
+<div data-layout="staff">
+  <div class="page-header page-header--row">
+    <div>
+      <h1 id="welcome-heading">Welcome</h1>
+      <p>Your assigned workload at a glance.</p>
+    </div>
+    <a class="btn btn--primary" href="/staff/complaints"><i class="fa-solid fa-list-check"></i> Open assigned complaints</a>
+  </div>
+
+  <section id="staff-stats" class="stat-grid" aria-busy="true">
+    <div class="skeleton-block"></div>
+    <div class="skeleton-block"></div>
+    <div class="skeleton-block"></div>
+    <div class="skeleton-block"></div>
+  </section>
+
+  <div class="card">
+    <div class="card__header">
+      <h2>Needs your attention</h2>
+      <a class="btn btn--ghost btn--sm" href="/staff/complaints">View all</a>
+    </div>
+    <div id="attention-list"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/layout.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pages/staff/dashboard.js') }}"></script>
+{% endblock %}

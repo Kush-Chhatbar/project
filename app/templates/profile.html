@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}My Profile{% endblock %}
+
+{% block body %}
+<div data-layout="guest">
+  <div class="page-header">
+    <h1>My profile</h1>
+    <p>Your account details.</p>
+  </div>
+
+  <div class="card" style="max-width:640px">
+    <div id="profile-content" aria-live="polite">
+      <div class="skeleton-block" style="height:180px"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/layout.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pages/profile.js') }}"></script>
+{% endblock %}

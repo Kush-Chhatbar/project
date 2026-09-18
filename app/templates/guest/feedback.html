@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Submit Feedback{% endblock %}
+
+{% block body %}
+<div data-layout="guest">
+  <div class="page-header">
+    <h1>Rate your stay</h1>
+    <p>Your feedback goes straight to our management team and helps us improve.</p>
+  </div>
+
+  <div class="card" style="max-width:760px">
+    <div id="stay-banner" class="alert alert--info" hidden>
+      <i class="fa-solid fa-bed"></i><span></span>
+    </div>
+
+    <form id="feedback-form" novalidate>
+      <h3>Your ratings</h3>
+      <p class="muted" style="font-size:.85rem">The overall score is calculated automatically from these four ratings.</p>
+
+      <div class="form-field">
+        <label>Cleanliness</label>
+        <div class="star-rating" data-rating="cleanliness_rating"></div>
+        <p class="star-rating__hint" data-hint="cleanliness_rating"></p>
+      </div>
+
+      <div class="form-field">
+        <label>Staff</label>
+        <div class="star-rating" data-rating="staff_rating"></div>
+        <p class="star-rating__hint" data-hint="staff_rating"></p>
+      </div>
+
+      <div class="form-field">
+        <label>Food</label>
+        <div class="star-rating" data-rating="food_rating"></div>
+        <p class="star-rating__hint" data-hint="food_rating"></p>
+      </div>
+
+      <div class="form-field">
+        <label>Service</label>
+        <div class="star-rating" data-rating="service_rating"></div>
+        <p class="star-rating__hint" data-hint="service_rating"></p>
+      </div>
+
+      <div class="form-field">
+        <label for="comment">Your comments <span class="muted">(optional)</span></label>
+        <textarea class="input" id="comment" name="comment" rows="4"
+          placeholder="Tell us about your experience — what stood out, and what could be better?"></textarea>
+      </div>
+
+      <details class="card" style="box-shadow:none; padding:14px 16px; margin: 6px 0 16px;">
+        <summary style="cursor:pointer; font-weight:600; color:var(--navy)">
+          Rate individual departments <span class="muted">(optional)</span>
+        </summary>
+        <div id="department-feedback-list" style="margin-top:12px"></div>
+      </details>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn--primary" data-loading-text="Submitting…">
+          <i class="fa-solid fa-paper-plane"></i> Submit feedback
+        </button>
+        <button type="reset" class="btn btn--ghost" id="reset-feedback">Clear</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/layout.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pages/guest/feedback.js') }}"></script>
+{% endblock %}

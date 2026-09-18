@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Grandeur Suites{% endblock %}
+
+{% block body %}
+<nav class="landing-nav">
+  <a class="brand" href="/">
+    <span class="brand__mark"><i class="fa-solid fa-hotel"></i></span>
+    <span>Grandeur Suites</span>
+  </a>
+  <div class="landing-nav__links">
+    <a class="btn btn--ghost btn--sm" href="/guest/login"><i class="fa-solid fa-user"></i> Guest Login</a>
+    <a class="btn btn--primary btn--sm" href="/login"><i class="fa-solid fa-briefcase"></i> Staff / Admin</a>
+  </div>
+</nav>
+
+<header class="landing-hero">
+  <div>
+    <span class="badge badge--assigned"><i class="fa-solid fa-concierge-bell"></i> Hospitality Service Suite</span>
+    <h1>Every guest voice, <em>heard and resolved.</em></h1>
+    <p>
+      A unified portal for in-stay feedback and complaint management — guests share their
+      experience, departments respond, and management sees the full picture in real time.
+    </p>
+    <div class="landing-hero__cta">
+      <a class="btn btn--gold" href="/guest/login"><i class="fa-solid fa-star"></i> I'm a Guest</a>
+      <a class="btn btn--primary" href="/login"><i class="fa-solid fa-user-tie"></i> Staff &amp; Admin Portal</a>
+    </div>
+    <div class="landing-badges">
+      <span class="badge badge--new">SLA-tracked complaints</span>
+      <span class="badge badge--progress">Sentiment analytics</span>
+      <span class="badge badge--resolved">Department performance</span>
+    </div>
+  </div>
+
+  <aside class="landing-visual" aria-hidden="true">
+    <h2 style="color:#fff">Inside the portal</h2>
+    <div class="landing-visual__stat"><span>In-stay feedback</span><strong>★ 1–5 ratings</strong></div>
+    <div class="landing-visual__stat"><span>Complaint tracking</span><strong>Live status</strong></div>
+    <div class="landing-visual__stat"><span>Response targets</span><strong>SLA monitored</strong></div>
+    <div class="landing-visual__stat"><span>Management view</span><strong>Analytics</strong></div>
+  </aside>
+</header>
+
+<section class="landing-section">
+  <h2>Built around three roles</h2>
+  <p>Each person sees exactly what they need — nothing more, nothing less.</p>
+  <div class="landing-features">
+    <div class="card landing-feature">
+      <i class="fa-solid fa-user"></i>
+      <h3>Guests</h3>
+      <p class="muted">Rate your stay across cleanliness, staff, food and service. Raise a complaint and follow its progress until it is resolved.</p>
+    </div>
+    <div class="card landing-feature">
+      <i class="fa-solid fa-id-badge"></i>
+      <h3>Staff</h3>
+      <p class="muted">See complaints assigned to you, take them in progress, document the fix and resolve them before SLA deadlines.</p>
+    </div>
+    <div class="card landing-feature">
+      <i class="fa-solid fa-chart-line"></i>
+      <h3>Admins</h3>
+      <p class="muted">Monitor ratings, sentiment and complaint trends, route new complaints to the right department and staff member.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="landing-footer">
+  © {{ range(2024, 2027) | random }} Grandeur Suites · Guest Feedback &amp; Complaint Analytics System
+</footer>
+{% endblock %}
